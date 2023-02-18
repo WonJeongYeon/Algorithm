@@ -1,0 +1,5 @@
+프로그래머스 Level 3 가장 먼 노드
+https://school.programmers.co.kr/learn/courses/30/lessons/49189
+일반적인 그래프 탐색 문제 - 1번 노드에서 가장 거리가 먼 노드의 개수 구하기
+DFS 탐색 시 시간초과
+BFS 탐색 시 이상적인 구현 (배열 출력으로 검증함)
