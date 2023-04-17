@@ -22,7 +22,7 @@ class Node {
 public class dijkstra {
 
     public static List<List<Node>> graph = new ArrayList<>();
-    public static int infinity = Integer.MAX_VALUE;
+    public static int infinity = Integer.MAX_VALUE-100;
 
     public static void main(String[] args) throws IOException {
 
@@ -48,12 +48,13 @@ public class dijkstra {
             graph.get(index).add(node);
         }
 
+
         boolean[] isVisit = new boolean[N];
         int[] distanceArr = new int[N];
         Arrays.fill(distanceArr, infinity);
         Arrays.fill(isVisit, false);
 
-        int i = 2; //현재 어떤 값(i < N)을 넣어도 다익스트라 알고리즘이 잘 수행되는 상태
+        int i = 0; //현재 어떤 값(i < N)을 넣어도 다익스트라 알고리즘이 잘 수행되는 상태
             distanceArr[i] = 0;
             int smallestDistance = infinity;
             int smallestIndex = 0;
@@ -67,10 +68,6 @@ public class dijkstra {
             }
             recursion(distanceArr, isVisit, smallestDistance, smallestIndex);
             System.out.println(Arrays.toString(distanceArr));
-
-
-
-
     }
 
     public static void recursion(int[] distanceArr, boolean[] isVisit, int smallestDistance, int smallestIndex) {

@@ -50,7 +50,6 @@ public class bj13023_answer {
     static void dfs(int start, ArrayList<ArrayList<Integer>> arrList, boolean[] visited, int cnt) {
         if (cnt == 5) {
             isLine = true;
-            System.out.println(start + "5여야 하는데");
             System.out.println(Arrays.toString(visited) + "통과 In if in dfs");
             return;
         }

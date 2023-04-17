@@ -8,6 +8,8 @@ public class bj2178_ing {
     public static int N;
     public static int M;
     public static int answer = 0;
+    public static int[] dx = {1, -1, 0, 0};
+    public static int[] dy = {0, 0, -1, 1};
 
     public static void main(String[] args) throws IOException {
 
@@ -53,21 +55,16 @@ public class bj2178_ing {
         }
         isVisit[x][y] = true; //방문 했음
         if (x == N-1 && y == M-1) { //목표 도착
-            //System.out.println(count);
             if (answer == 0) { //기존 정답이 없으면
                 answer = count;
             }
-//            if (count == 17) { //예제 2에서 17이 왜 나올까? 왜 한붓그리기를 쳐 하고 있을까?
-//                for (boolean[] b : isVisit) {
-//                    System.out.println(Arrays.toString(b));
-//                }
-//            }
             return;
         }
         //모든 방향으로 재귀
-            recursion(x + 1, y, count + 1, isVisit);
-            recursion(x - 1, y, count + 1, isVisit);
-            recursion(x, y + 1, count + 1, isVisit);
-            recursion(x, y - 1, count + 1, isVisit);
+        for (int i = 0; i<4; i++) {
+            recursion(x+dx[i], y+dy[i], count+1, isVisit);
+        }
+        isVisit[x][y] = false; //방문 여부 초기화
+
     }
 }

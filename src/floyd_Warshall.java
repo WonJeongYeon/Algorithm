@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.Arrays;
-import java.util.Map;
 
 public class floyd_Warshall {
 
@@ -26,7 +25,7 @@ public class floyd_Warshall {
             matrix[start][end] = cost;
         }
 
-        for (int i = 0; i<N; i++) {
+        for (int i = 0; i<N; i++) { //인접 행렬 그래프 구현
             for (int j = 0; j<N; j++) {
                 if (i != j && matrix[i][j] == 0) {
                     matrix[i][j] = infinity;
@@ -36,19 +35,21 @@ public class floyd_Warshall {
 
         for (int i = 0; i<N; i++) {
             for (int j = 0; j<N; j++) {
-                if (matrix[i][j] == infinity) {
+                if (matrix[j][i] == infinity) {
+                    //중간 노드로 거쳐갈 수 없으면, 반복을 진행할 필요가 없다.
                     continue;
                 }
                 for (int k = 0; k<N; k++) {
-                    if (matrix[j][k] == infinity) {
+                    if (matrix[i][k] == infinity) {
                         continue;
                     }
-                    matrix[i][k] = Math.min(matrix[i][k], matrix[i][j] + matrix[j][k]);
+                    matrix[j][k] = Math.min(matrix[j][k], matrix[j][i] + matrix[i][k]);
                 }
             }
         }
 
         for (int[] i: matrix) {
+            //결과 출력, infinity 값을 대체해서 출력해야 한다. TODO 아직 구현하지 않았다.
             System.out.println(Arrays.toString(i));
         }
 

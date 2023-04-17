@@ -8,7 +8,7 @@ public class bj4375 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String input = "a";
-        while (!(input = br.readLine()).equals("")) {
+        while ((input = br.readLine()) != null) {
             BigInteger n = new BigInteger(input);
             //long n = Long.parseLong(input);
             StringBuilder sb = new StringBuilder();
